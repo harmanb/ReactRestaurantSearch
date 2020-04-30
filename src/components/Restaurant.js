@@ -4,15 +4,19 @@ import Button from 'react-bootstrap/Button';
 
 class Restaurant extends Component{
     render(){
+        var price = "";
+        for (var i = 0; i < this.props.restaurant.price; i++){
+            price += "$";
+        }
         return(
             
 <Card className="text-center mt-3" style={{ width: '18rem' }}>
   <Card.Header>{this.props.restaurant.name}</Card.Header>
   <Card.Body>
     <Card.Text>
-      Address:
+      Address: {this.props.restaurant.address}
       <br></br>
-      Price:
+      Price: {price}
     </Card.Text>
     <Button variant="primary">Order</Button>
   </Card.Body>

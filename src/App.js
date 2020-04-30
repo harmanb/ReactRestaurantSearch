@@ -9,9 +9,7 @@ import axios from 'axios';
 class App extends Component{
   state = {
     restaurants: [
-      {name: "Burger King"},
-      {name: "Burrito Boyz"},
-      {name: "Pizza Hut"}
+     
     ] 
   }
   
@@ -42,6 +40,7 @@ function loadRestaurantResults(self){
   
       self.state.restaurants = res.data.restaurants;
       self.forceUpdate();
+    console.log(self.state.restaurants);
   });
 }
 export default App;
