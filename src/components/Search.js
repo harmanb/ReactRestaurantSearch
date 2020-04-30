@@ -10,6 +10,8 @@ import Button from 'react-bootstrap/Button';
 
 
 class Search extends Component{
+  
+     
     render(){
         return(  
 
@@ -17,10 +19,10 @@ class Search extends Component{
             <Navbar.Brand href="#home">Restaurant Search</Navbar.Brand>
             
             <Form inline>
-              <FormControl type="text" placeholder="City" className="mr-sm-2" />
-              <FormControl type="text" placeholder="Additional criteria" className="mr-sm-2" />
+              <FormControl type="text" placeholder="City" className="mr-sm-2" id="city" />
+              <FormControl type="text" placeholder="Additional criteria" className="mr-sm-2" id="extra-info"/>
 
-              <Button variant="outline-info">Search</Button>
+              <Button variant="outline-info" id="searchSubmit" >Search</Button>
             </Form>
           </Navbar>
          
@@ -29,4 +31,7 @@ class Search extends Component{
         
     }
 }
+
 export default Search;
+
+
