@@ -4,7 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/Formcontrol';
 import Button from 'react-bootstrap/Button';
-
+import { connect } from 'react-redux';
+import { restaurantSearch } from '../actions';
+import axios from 'axios';
 
 
 
@@ -22,7 +24,16 @@ class Search extends Component{
               <FormControl type="text" placeholder="City" className="mr-sm-2" id="city" />
               <FormControl type="text" placeholder="Additional criteria" className="mr-sm-2" id="extra-info"/>
 
-              <Button variant="outline-info" id="searchSubmit" >Search</Button>
+              <Button variant="outline-info" id="searchSubmit" onClick={() => {
+    
+                    var city = document.getElementById('city').value;
+                    var extraInfo = document.getElementById('extra-info').value
+                    axios.get(`https://opentable.herokuapp.com/api/restaurants?city=${city}`)
+                    .then(res => {
+                    this.props.restaurantSearch(res.data.restaurants);
+                    });
+                }}>
+                Search</Button>
             </Form>
           </Navbar>
          
@@ -32,6 +43,12 @@ class Search extends Component{
     }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+    if(state != null){
+        return {restaurants: state.restaurants};
+    }
+    return {restaurants: null};
+}
+export default connect(mapStateToProps, {restaurantSearch})(Search);
 
 
