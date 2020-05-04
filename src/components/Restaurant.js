@@ -18,7 +18,7 @@ class Restaurant extends Component{
       <br></br>
       Price: {price}
     </Card.Text>
-    <Button variant="primary">Order</Button>
+    <Button variant="primary" onClick={() => {window.open(this.props.restaurant.reserve_url, "_blank")}}>Order</Button>
   </Card.Body>
 </Card>
         );
